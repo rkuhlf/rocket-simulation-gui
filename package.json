@@ -1,0 +1,21 @@
+{
+  "name": "rocket-simulation-gui",
+  "version": "1.0.0",
+  "description": "McLeod seems to think it would be cool to have built our own simulation app. I agree.",
+  "main": "main.js",
+  "scripts": {
+    "compile-and-start": "pug pug --out html & sass --update sass/main.sass:css/main.css & electron .",
+    "start": "electron .",
+    "compile-pug": "pug pug --out html",
+    "compile-sass": "sass --update sass/main.sass:css/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Brazoswood Goddard Program 2021-2022",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.1.7",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.37.0"
+  }
+}

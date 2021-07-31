@@ -41,3 +41,12 @@ I think that ultimately everything will be best-designed if it is a package. [Ho
     - I still have some hope that wxpython, pySimple2, or tKinter have a way to serve html
         - This would be simplest, because then the 
 - I think Kivy also has some potential for the kind of app I wanted to make, so maybe come back to it
+
+
+## HTML Libraries
+The only issue wit TML & CSS is that html isn't really great for reusing code. I think I can get pug compiling, but it might be difficult in conjunction with electron.
+
+http://www.matthiassommer.it/programming/testing/run-npm-scripts-in-visual-studio-code-with-a-click-of-a-button/?cookie-state-change=1627761221616
+
+## Styling
+There are two approaches to styling. Indidualistic styling, where you all of your classes could basically be ids (they only affect one element) and generally styling. Though I think it is frowned on, I'm gonna probably go for more individualistic stuff, since I think most of the components will only need to be used once, and I can reuse stuff based on the template engine
