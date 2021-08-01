@@ -1,11 +1,38 @@
+//- This should not have any scrolling, unless you are forced to go to two columns instead of three by three
+
 doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        base(href="../")
+        link(rel="stylesheet", href="./css/main.css")
+
         title Editor Menu
     body 
         //- Have a couple of preset objects to make it simpler to display the menu
+        mixin selectable(imageSource, text)
+            //- The whole thing needs to take us to the page when clicked. It should also have some kind of conditional rendering based on data.js
+            .selectable-editor
+                img(src=imageSource, alt=text)
 
-        //- I believe that this is a perfect application of display: grid
+                p= text
+
+        .page-container
+            //- I believe that this is a perfect application of display: grid
+            .editor-menu
+                +selectable('img/noseCone.png', "Nose")
+                +selectable('img/body.png', "Body")
+                +selectable('img/fins.png', "Fins")
+
+                +selectable('img/motor.png', "Motor")
+                +selectable('img/parachute.png', "Recovery")
+
+                +selectable('img/environment.png', "Environment")
+
+
+                +selectable('img/simulation.png', "Simulation")
+                +selectable('img/data.png', "Data")
+
+                +selectable('img/settings.png', "Settings")

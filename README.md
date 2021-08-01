@@ -52,4 +52,7 @@ http://www.matthiassommer.it/programming/testing/run-npm-scripts-in-visual-studi
 There are two approaches to styling. Indidualistic styling, where you all of your classes could basically be ids (they only affect one element) and generally styling. Though I think it is frowned on, I'm gonna probably go for more individualistic stuff, since I think most of the components will only need to be used once, and I can reuse stuff based on the template engine
 
 
+
+It only supports single stage rockets atm. This is something that could be better but I don't plan to improve.
+
 <!-- TODO: I should probably separate the renderer js from the main js -->

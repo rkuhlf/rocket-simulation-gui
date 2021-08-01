@@ -1,3 +1,56 @@
+//- -OUTLINE-
+    Sweet multiline comments
+    I think that main.js sould old all of the logic for which page to render
+    I don't think that having a main pug file is necessary
+
+    There can be a few things that function as frequent components
+    - Back button
+    - Run button
+    - Title
+    - Probably a few input thingies
+    - A continue button
+
+    -SCREENS-
+    Home (That is going to be this file)
+        Title
+        Option to create new rocket
+        List of past rockets underneath
+            Each item has a delete button, a name, and a list of settins underneath the name
+
+    Settings
+        Prevent simulation on potential design errors
+            Motor wider than body
+            Fin flutter predicted
+
+
+    DESIGN
+    Design selection menu (should have a back menu)
+        Screens you haven't completed are greyed out
+    
+    Nose
+    Body
+    Fins
+
+    Motor
+    Recovery
+    Environment
+
+    Simulation
+    Data (probably going to be the hardest job, but this is also where a ton of improvement could be made)
+        Should probably have a way to show separate screens (idk what UI would work best)
+        Chart with all of the data
+            Export
+        Graphs
+        3D Visualization
+        Select a past simulation of the rocket
+
+
+    Settings (links back to the same original settings room, but the back button takes you back to where you came from)
+
+
+
+
+
 doctype html
 html(lang="en")
     head
@@ -9,9 +62,11 @@ html(lang="en")
 
         title Document
     body 
-        h1 Hello World
+        h1.main-title Goddard Simulation
 
-        button#test Test Python
+        
+
+
 
         //- Electron actually requires this to be at the bottom if you are going to deal with the document
-        script(src="./runPython.js") 
+        script(src="./renderingJS/runPython.js") 

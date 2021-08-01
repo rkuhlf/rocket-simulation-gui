@@ -1,3 +1,9 @@
+// I think that all of the data storage should be handled in the main section of electron.
+// Every time the user makes a change and ten seconds have passed since the last change, write to a JSON file
+// I like JSON because there is no reason to make the save format excessively hard to work with
+// I have no idea how people program ctrl-z. Do they just store every single action and undo them one-by-one? Do you have to program it manually?
+
+
 const { app, ipcMain, BrowserWindow } = require('electron')
 
 function createWindow() {
@@ -13,7 +19,7 @@ function createWindow() {
     window.maximize()
     window.show()
 
-    window.loadFile('html/index.html')
+    window.loadFile('./html/editorMenu.html')
 }
 
 
