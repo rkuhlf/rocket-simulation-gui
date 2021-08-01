@@ -10,31 +10,33 @@ html(lang="en")
         link(rel="stylesheet", href="./css/main.css")
 
         title Editor Menu
-    body 
+    body
+        include ./helpers
+
         //- Have a couple of preset objects to make it simpler to display the menu
-        mixin selectable(imageSource, text)
+        mixin selectable(imageSource, text, target)
             //- The whole thing needs to take us to the page when clicked. It should also have some kind of conditional rendering based on data.js
-            .selectable-editor
+            a.selectable-editor(href='./html/' + target + '.html')
                 img(src=imageSource, alt=text)
 
                 p= text
 
-        .page-container
-            //- I believe that this is a perfect application of display: grid
-            .editor-menu
-                +selectable('img/noseCone.png', "Nose")
-                +selectable('img/body.png', "Body")
-                +selectable('img/fins.png', "Fins")
+        //- In the top left there is a back button
+        //- +backButton("./html/index.html")
 
-                +selectable('img/motor.png', "Motor")
-                +selectable('img/parachute.png', "Recovery")
+        //- I believe that this is a perfect application of display: grid
+        .editor-menu
+            +selectable('img/noseCone.png', "Nose", 'noseCone')
+            +selectable('img/body.png', "Body", 'body')
+            +selectable('img/fins.png', "Fins", 'fins')
 
-                +selectable('img/environment.png', "Environment")
+            +selectable('img/motor.png', "Motor", 'motor')
+            +selectable('img/parachute.png', "Recovery", 'recovery')
+
+            +selectable('img/environment.png', "Environment", 'environment')
 
 
-                +selectable('img/simulation.png', "Simulation")
-                +selectable('img/data.png', "Data")
+            +selectable('img/simulation.png', "Simulation", 'simulation')
+            +selectable('img/data.png', "Data", 'data')
 
-                +selectable('img/settings.png', "Settings")
-                
-                //- In the bottom left or something there is an exit button to take you back to the home screen
+            +selectable('img/settings.png', "Settings", 'settings')
