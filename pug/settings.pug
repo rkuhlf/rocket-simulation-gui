@@ -1,0 +1,37 @@
+//- There has to be one version of this with a back button and one version with a menu button
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        base(href="../")
+        link(rel="stylesheet", href="./css/main.css")
+        title Settings
+    body 
+        include ./helpers.pug
+
+        .page-container
+            +title("Settings")
+            //- Maybe it should do one of those things where there is always a button next to it to reset it to default
+
+            //- Sound effects?
+
+            //- High contrast
+
+            //- Rockets folder
+            //- I want to say app.getPath('documents') now
+            //- TODO: Figure it out so I can use a user folder
+            +input("Rockets Folder", "ex. C:\\Users\\riley\\Documents\\GoddardRockets", "folder", "C:\\GoddardSimulations")
+
+            //- Autosave every
+
+            //- Delete data after
+
+            //- Template Rocket
+            +input("Template Rocket", "ex. C:\\Users\\riley\\Documents\\GoddardRockets\\basic.god", "template", "")
+
+        script(src="./renderingJS/settings.js") 

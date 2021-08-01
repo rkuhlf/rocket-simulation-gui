@@ -6,6 +6,8 @@
 
 const { app, ipcMain, BrowserWindow } = require('electron')
 
+const data = require('./mainJS/data')
+
 function createWindow() {
     window = new BrowserWindow({
         show: false,
@@ -19,7 +21,7 @@ function createWindow() {
     window.maximize()
     window.show()
 
-    window.loadFile('./html/editorMenu.html')
+    window.loadFile('./html/settings.html')
 }
 
 
@@ -35,11 +37,30 @@ app.on('window-all-closed', () => {
     }
 })
 
+
+
+data.main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const { spawn } = require('child_process');
 
 
 
-//ipcMain.on will receive the “btnclick” info from renderprocess 
+//ipcMain.on will receive the “btnclick” info from renderprocess
 ipcMain.on("btnclick", function (event, arg) {
     console.log('test from main')
 
@@ -66,3 +87,4 @@ ipcMain.on("btnclick", function (event, arg) {
 });
 
 
+*/

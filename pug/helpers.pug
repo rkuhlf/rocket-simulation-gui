@@ -1,0 +1,18 @@
+//- Input feature
+//- Swappable windows thing
+
+mixin title(text)
+    h2.title= text
+
+
+mixin input(label, placeholder, field, initial)
+    //- This is where to put the code for the easy reset if wanted
+        Little button on the side that changes it back to default
+
+        Maybe it could have an optional tool tip
+
+    label= label
+    input(id=field, placeholder=placeholder, value=initial)
+
+    //- Should really be an icon
+    button(onclick="document.getElementById('" + field + "').value = '" + initial + "'") Reset
