@@ -64,10 +64,24 @@ html(lang="en")
     body 
         h1.main-title Goddard Simulation
 
-        //- Whenever you click on the add button, the text changes from add new rocket to an input for your rockets name
-        //- Options to import
+        //- Whenever you click on the add button, the text changes from add new rocket to an input for your rockets name and a right carat that you can click on to begin
+        //- You can see an example of plus and drop down in VS Code terminal new terminal
+        button Create Rocket | + 
+            div drop down
+        
+        //- When you unfocus it and there is nothing in the field, it should turn back
+        input(type="text" )
+        button right carat
+
+        //-  options to import in a drop down next to it
+        
+
+        //- List of rockets to open
+        .rocket-list
 
 
+        //- Settings (I have no idea where to put this)
+        a.settings(href="./html/settings.html") Settings
 
         //- Electron actually requires this to be at the bottom if you are going to deal with the document
-        script(src="./renderingJS/runPython.js") 
+        script(src="./renderingJS/home.js") 

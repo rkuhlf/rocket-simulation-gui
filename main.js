@@ -21,7 +21,7 @@ function createWindow() {
     window.maximize()
     window.show()
 
-    window.loadFile('./html/settings.html')
+    window.loadFile('./html/editorMenu.html')
 }
 
 

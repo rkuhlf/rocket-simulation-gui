@@ -38,6 +38,13 @@ templateInput.addEventListener('input', updateValue => {
 ipcRenderer.on("retrieved-data", function (event, arg) {
     arg = JSON.parse(arg)
 
-    folderInput.value = arg.folder
-    templateInput.value = arg.template
+    const setValue = (element, value) => {
+        // Otherwise it should be left at the default given in the pug code
+        if (value != undefined) {
+            element.value = value;
+        }
+    }
+
+    setValue(folderInput, arg.folder);
+    setValue(templateInput, arg.template);
 });

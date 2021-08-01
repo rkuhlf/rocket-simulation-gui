@@ -1,5 +1,6 @@
 //- There has to be one version of this with a back button and one version with a menu button
-
+//- TODO: Figure out how to do that. Two files seems like a bad idea, but it's the best I got atm
+//- Is there some way to pass information to an html page when you load it. See if ?type="" works in electron
 
 doctype html
 html(lang="en")
@@ -14,6 +15,8 @@ html(lang="en")
     body 
         include ./helpers.pug
 
+        +backButton('./html/index.html')
+
         .page-container
             +title("Settings")
             //- Maybe it should do one of those things where there is always a button next to it to reset it to default
@@ -25,7 +28,7 @@ html(lang="en")
             //- Rockets folder
             //- I want to say app.getPath('documents') now
             //- TODO: Figure it out so I can use a user folder
-            +input("Rockets Folder", "ex. C:\\Users\\riley\\Documents\\GoddardRockets", "folder", "C:\\GoddardSimulations")
+            +input("Simulations Folder", "ex. C:\\Users\\riley\\Documents\\GoddardRockets", "folder", "C:\\\\GoddardSimulations")
 
             //- Autosave every
 
@@ -33,5 +36,13 @@ html(lang="en")
 
             //- Template Rocket
             +input("Template Rocket", "ex. C:\\Users\\riley\\Documents\\GoddardRockets\\basic.god", "template", "")
+
+
+
+            //- Maybe a load .json file option at the bottom (as well as export JSON obviously) 
+                Not really necessary until there are a ton of options
+
+            
+            //- An 'About' section
 
         script(src="./renderingJS/settings.js") 

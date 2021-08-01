@@ -1,6 +1,22 @@
 //- Input feature
 //- Swappable windows thing
 
+mixin backButton(from)
+    //- Circular arrow in the top left pointing left
+    a(href=from)
+        div back arrow
+
+mixin menuButton
+    a(href='./html/editorMenu.pug') 
+        //- TODO: replace with sandwich icon
+        div menu
+
+mixin continueButton(to)
+    //- I think some of these would do well with conditional formatting, but that is probably for a separate part (renderingJS)
+    a(href=to)
+        div continue
+
+
 mixin title(text)
     h2.title= text
 

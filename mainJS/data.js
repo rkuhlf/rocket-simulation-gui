@@ -39,6 +39,13 @@ module.exports = {
             // TODO: I don't know if it is good practice to confirm every single communication between front end and back end
             // event.sender.send("btnclick-task-finished", "yes");
         });
+
+
+        ipcMain.on("get-rockets", (event, arg) => {
+            // Read the file from settings
+
+            event.sender.send("retrieved-rockets");
+        });
     }
 }
 
