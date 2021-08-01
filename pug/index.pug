@@ -6,6 +6,12 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         base(href="../")
         link(rel="stylesheet", type="text/css", href="./css/main.css")
+
         title Document
     body 
         h1 Hello World
+
+        button#test Test Python
+
+        //- Electron actually requires this to be at the bottom if you are going to deal with the document
+        script(src="./runPython.js") 

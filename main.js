@@ -1,14 +1,21 @@
-const { app, BrowserWindow } = require('electron')
+const { app, ipcMain, BrowserWindow } = require('electron')
 
 function createWindow() {
-    window = new BrowserWindow({ show: false, width: 800, height: 600 })
+    window = new BrowserWindow({
+        show: false,
+        width: 800, height: 600,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
+    })
 
     window.maximize()
     window.show()
 
     window.loadFile('html/index.html')
-    // window.loadFile('css/main.css')
 }
+
 
 
 app.on('ready', createWindow)
@@ -21,3 +28,35 @@ app.on('window-all-closed', () => {
         app.quit()
     }
 })
+
+const { spawn } = require('child_process');
+
+
+
+//ipcMain.on will receive the “btnclick” info from renderprocess 
+ipcMain.on("btnclick", function (event, arg) {
+    console.log('test from main')
+
+    // I suspect that this is going to go poorly when I try to compile this for the end user
+    // I believe that they will need to have python installed
+    // Maybe I could do that thing where I just bundle my own installation of python with the app. Seems bloaty, but idk. python is about 108 MB. Rasaero is three megabytes. That is what we are aiming for. I think that python-shell should be able to do it without requiring any install
+    // I think there is a way to compile python to .exe; I'll have to look into that
+    // It should be reasonable, considering that I only need to read a file and write a file with the sim output
+    // This is acceptable for now
+    // TODO: get the finer details of more of this worked out, particularly with regard to electron compilation
+    const ls = spawn('python', ["./runSimulation.py"]);
+
+    ls.stdout.on('data', (data) => {
+        console.log(`stdout: ${data}`);
+    });
+
+    ls.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`);
+    });
+
+    // inform the render process that the assigned task finished. Show a message in html
+    // event.sender.send in ipcMain will return the reply to renderprocess
+    event.sender.send("btnclick-task-finished", "yes");
+});
+
+
