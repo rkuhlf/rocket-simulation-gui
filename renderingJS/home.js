@@ -9,7 +9,7 @@ const { ipcRenderer } = require('electron');
 const rocketList = document.querySelector('.rocket-list');
 
 window.onload = () => {
-    incRenderer.send("get-rockets");
+    ipcRenderer.send("get-rockets");
 }
 
 // This really does not work as well as it should with pug
@@ -32,10 +32,33 @@ function createRocketItem(name, description) {
 }
 
 ipcRenderer.on("retrieved-rockets", (event, arg) => {
-    arg = JSON.parse(arg);
+    console.log(arg);
+    // TODO: It is at this point that I discovered that electron's ipc system can handle more than strings. I should refactor everything to get rid of the unnecessary JSON.parse & stringifies
+    // try {
+    //     arg = JSON.parse(arg);
+    // } catch {
+    //     return;
+    // }
 
-    arg.rockets.forEach(element => {
+    arg.forEach(element => {
         const toAdd = createRocketItem(element.name, element.description);
         rocketList.appendChild(toAdd);
     });
+});
+
+
+
+
+const nameInput = document.querySelector('.name-input');
+
+
+const submitNameButton = document.querySelector('.submit-name')
+
+
+submitNameButton.addEventListener('click', () => {
+    const name = nameInput.value;
+
+    console.log(name, "created")
+
+    ipcRenderer.send('create-rocket', name);
 });

@@ -5,8 +5,13 @@
 
 
 const { app, ipcMain, BrowserWindow } = require('electron')
+const fs = require('fs')
+const path = require("path")
 
 const data = require('./mainJS/data')
+const { updateJSONDeep } = require("./mainJS/helpers")
+
+
 
 function createWindow() {
     window = new BrowserWindow({
@@ -21,7 +26,7 @@ function createWindow() {
     window.maximize()
     window.show()
 
-    window.loadFile('./html/editorMenu.html')
+    window.loadFile('./html/index.html')
 }
 
 
@@ -38,13 +43,44 @@ app.on('window-all-closed', () => {
 })
 
 
-
 data.main()
 
 
 
+let currentRocket = undefined
+// Even if it is undefined, the schema should take care of it
+let basePath = store.get('settings.folder')
+global.currentRocketPath = basePath
 
 
+
+function loadRocket(newRocket) {
+    currentRocket = newRocket;
+    currentRocketPath = path.join(basePath, newRocket + '.json')
+
+    // Update tins like create time, last edit
+    // TODO: Make tese variable names more consistent
+    const toWrite = {
+        updated: Date.now(),
+    };
+
+    updateJSONDeep(currentRocketPath, toWrite)
+}
+
+ipcMain.on('create-rocket', (event, arg) => {
+    loadRocket(arg);
+
+    window.loadFile('./html/noseCone.html')
+
+    const updateObject = {
+        rocket: {
+
+        },
+        created: Date.now()
+    }
+
+    updateJSONDeep(currentRocketPath, updateObject)
+})
 
 
 
