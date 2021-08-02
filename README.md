@@ -52,7 +52,14 @@ http://www.matthiassommer.it/programming/testing/run-npm-scripts-in-visual-studi
 There are two approaches to styling. Indidualistic styling, where you all of your classes could basically be ids (they only affect one element) and generally styling. Though I think it is frowned on, I'm gonna probably go for more individualistic stuff, since I think most of the components will only need to be used once, and I can reuse stuff based on the template engine
 
 
+## NodeJS
+Notice that NodeJS uses CommonJS module syntax, which means that you cannot use the nifty ES6 import tools (https://stackoverflow.com/questions/38296667/getting-unexpected-token-export
+). I have no idea how to tell visual code to stop recommending that. Actually, Node may have been updated recently to support that, but I am still on Node 12.0.
+
+
 
 It only supports single stage rockets atm. This is something that could be better but I don't plan to improve.
+
+It would be nice if the simulation suggested things that you could improve. Maybe there could be a run diagnostics button in the data section
 
 <!-- TODO: I should probably separate the renderer js from the main js -->
