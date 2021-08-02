@@ -7,5 +7,10 @@ html(lang="en")
 
         base(href="../")
         link(rel="stylesheet", href="./css/main.css")
-        title Document
+        title Analyze and Simulate Flight
     body 
+        include ./helpers
+
+        //- When there is no past data, that is what the page should say, and the center should be largely occupied by a button that says simulate rocket
+
+        +menuButton

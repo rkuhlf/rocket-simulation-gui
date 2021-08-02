@@ -7,6 +7,29 @@ html(lang="en")
         
         base(href="../")
         link(rel="stylesheet", href="./css/main.css")
-        title Document
+        title Design Rocket Body
     body 
+        include ./helpers
+
+
+        +menuButton
+
+        //- Number input for rocket length
+        //- This will be a good time to have some restrictions on the inputs
+        +input("Length", "20", "rocket-length", 20)
+
+        //- Rocket diameter
+
+
+        //- Rocket center of gravity
+            There should be a few options here
+                You can just specify a distance from the nose tip
+                You can upload a csv
+                You can open a csv editor
+
+                Eventually, it would be nice to specify a center of gravity in 3 degrees of freedom
+
+
+        +continueButton('./html/fins.html')
+
     

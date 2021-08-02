@@ -1,3 +1,9 @@
+//- This page shouldn't need to have any popouts
+    Maybe just the one for importing stls
+
+    I think there should be a preview on the left
+    Scrolling settings menu on the right
+
 doctype html
 html(lang="en")
     head
@@ -7,5 +13,32 @@ html(lang="en")
         
         base(href="../")
         link(rel="stylesheet", href="./css/main.css")
-        title Document
+        title Design Rocket Fins
     body 
+        include ./helpers
+
+
+        mixin clippedDelta()
+            +input("Root Chord", "4", "root", 4)
+            +input("Tip Chord", "3", "root", 3)
+
+        +menuButton
+
+
+        //- Dropdown at the start to give a bunch of presets
+        +dropDown(["Ellipsoid", "Clipped Delta", "Delta"])
+
+        +clippedDelta
+
+        //- Cross sectional area section
+        +dropDown(["Airfoil", "Square", "Hexagonal", "Rounded"])
+
+
+        +continueButton('./html/motor.html')
+
+
+
+        //- Don't really worry about this, since I think it is beyond scope. Upload is at the bottom, centered, slightly greyed out, and maybe italicized. It is basically a sentence with an underline. Clicking on it takes you to a new window where you drag and drop your file in. Then openfoam analyzes it
+
+
+        script(src="./renderingJS/fins.js") 

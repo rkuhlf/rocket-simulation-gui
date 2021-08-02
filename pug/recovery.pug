@@ -7,5 +7,16 @@ html(lang="en")
         
         base(href="../")
         link(rel="stylesheet", href="./css/main.css")
-        title Document
+        title Design Recovery System
     body 
+        include ./helpers
+        //- I think that there should basically be a collapsable list of parachutes on the right side, and a plus button at the bottom
+        //- On the left, there is a preview of whatever drag system is currently being focused on on the right
+        //- Realistically, this system eventually calls for drag and drop, but it could probably get by with those little arrows
+
+        +menuButton
+
+
+        +continueButton('environment')
+
+        script(src="./renderingJS/recovery.js") 

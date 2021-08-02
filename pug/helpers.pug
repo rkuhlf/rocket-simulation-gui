@@ -1,13 +1,13 @@
 //- Input feature
 //- Swappable windows thing
 
-mixin backButton(from)
+mixin backButton(from="./html/index.html")
     //- Circular arrow in the top left pointing left
     a(href=from)
         div back arrow
 
 mixin menuButton
-    a(href='./html/editorMenu.pug') 
+    a(href='./html/editorMenu.html') 
         //- TODO: replace with sandwich icon
         div menu
 
@@ -15,6 +15,15 @@ mixin continueButton(to)
     //- I think some of these would do well with conditional formatting, but that is probably for a separate part (renderingJS)
     a(href=to)
         div continue
+
+mixin runButton()
+    //- On click there should be some javascript to communicate with the MainJS
+    //- It should take you to a data page, where you can see the simulation progress
+    //- You should be able to navigate or leave the data page
+
+    //- It should be grayed out when there isn't enough information
+
+    p right triangle for run button
 
 
 mixin title(text)
@@ -32,3 +41,14 @@ mixin input(label, placeholder, field, initial)
 
     //- Should really be an icon
     button(onclick="document.getElementById('" + field + "').value = '" + initial + "'") Reset
+
+
+//- Figure out how to extend a mixin for the input of type number
+
+
+mixin dropDown(option)
+    p This will be a dropdown
+
+
+//- Eventually there is going to have to be some kind of grid view
+    Need one for data, and for CG
